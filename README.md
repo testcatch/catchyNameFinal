@@ -33,7 +33,7 @@ if(temp!=null){//YOUR BUSSINES LOGIC ALGORITHM!!!}
 ```
 This line returns an object on the list(from arrayList that its list has as field) that its Coordinates are EQUAL to champions Coordinates.<br />
 So it may have an object at that location or not. Of course you get the first instance of it at the list (closest to 0).<br />
-Every object has hitbox and equals does soemthing liek that-> 4=5.<br />
+Every object has hitbox and equals does soemthing like that-> 4=5.<br />
 So what about if you want the Actual closest object???<br />
 <br />
 This is why Mobs(for example) have a compareTo and a target Coordinates.They are being compared with their distance fromn their target.<br />
