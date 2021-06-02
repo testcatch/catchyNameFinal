@@ -60,12 +60,10 @@ public class MobList implements Serializable{
 	}
 
 	public Mob getMob(Coordinates coordinates) {
-		Mob temp;
 		if(mobs!=null) {
 		   for(Mob mob:mobs) {
 			  if(mob!=null&&mob.getCoordinates().equals(coordinates)) {
-				  temp =mob;
-				  return temp;
+				  return mob;
 			  }
 			}
 		}
@@ -79,6 +77,7 @@ public class MobList implements Serializable{
 	}
 
 	public void sort() {
+		mobs.removeAll(Collections.singleton(null));
 		Collections.sort(mobs);
 	}
 

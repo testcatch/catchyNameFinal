@@ -40,6 +40,8 @@ public class GameFrame extends JPanel implements Runnable{
 	private JButton pauseButton;
 	private transient Keyboard key;
 	
+	private JFrame pauseFrame;
+	
 	class Keyboard implements KeyListener{
 		private boolean[] keycodes = new boolean[125];
 
@@ -70,11 +72,7 @@ public class GameFrame extends JPanel implements Runnable{
 		frame.add(pauseButton);
 		
 		pauseButton.addActionListener(e -> {
-			if(!paused) {
-				pauseButton.setText("Resume");
-				new PauseFrame(this,gamedata);
-				paused = !paused;
-			}
+			pause(pauseFrame);
 		});
 		
 		key = new Keyboard();
@@ -114,6 +112,17 @@ public class GameFrame extends JPanel implements Runnable{
 			Thread.currentThread().interrupt();
 			e.printStackTrace();
 		}
+	}
+	
+	private void pause(JFrame f) {
+		if(!paused) {
+			pauseButton.setText("Resume");
+			f = new PauseFrame(this,gamedata);		
+		}else {
+			pauseButton.setText(" Pause ");
+			f.dispose();
+		}
+		paused = !paused;
 	}
 
 	@Override

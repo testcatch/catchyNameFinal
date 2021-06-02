@@ -2,7 +2,6 @@ package frames;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -16,7 +15,7 @@ public class InventoryFrame extends JFrame{
 	private JPanel panel;
 	private JButton back;
 	private JButton swap;
-	private JList<Object> inventory;
+	//private JList<Object> inventory;
 	private JTextArea activeitem;
 
 	public InventoryFrame(GameData data) {
@@ -25,7 +24,7 @@ public class InventoryFrame extends JFrame{
 		swap = new JButton("swap");
 		activeitem = new JTextArea("Active Item");
 		
-		panel.add(inventory);
+		//panel.add(inventory);
 		panel.add(activeitem);
 		panel.add(swap);
 		panel.add(back);

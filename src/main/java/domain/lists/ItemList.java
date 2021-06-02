@@ -75,6 +75,7 @@ public class ItemList implements Serializable{
 	}
 	
 	public void sort() {
+		items.removeAll(Collections.singleton(null));
 		Collections.sort(items);
 	}
 
