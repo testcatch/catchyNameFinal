@@ -14,8 +14,8 @@ This project is a 2D/topdown game. <br />
 The Goal was to make a system that is a 'canvas' for programmers that want a head start to create their own game of this kind!!! <br />
 The Goal was to make it simple enough for additions - that don't require changes. <br />
 The Goal was to make a designe a system without many flaws. Create diagrams etc for that reason, and this is the result!!! <br />
-This was made in postgraduate enviroment - for a university subject. <br />
-There are no realy innovations at the bussiness logic of it. Just the implementation of the game(if,of course, isn't yet implemented this way by another person-team).
+This was made in a postgraduate enviroment - for a university subject/educational purposes. <br />
+There are no really innovations at the bussiness logic of it. Just the implementation of the game(if,of course, isn't yet implemented this way by another person-team).
 	
 ## How to add new Object to your system
 1. Create your class!!! Extend Renderables!!!(Mind that to use an object you need Coordinates/Sprite - and this is exacly why you extend that class) <br />
