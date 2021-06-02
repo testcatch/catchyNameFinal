@@ -14,15 +14,16 @@ This project is a 2D/topdown game. <br />
 The Goal was to make a system that is a 'canvas' for programmers that want a head start to create their own game of this kind!!! <br />
 The Goal was to make it simple enough for additions - that don't require changes. <br />
 The Goal was to make a designe a system without many flaws. Create diagrams etc for that reason, and this is the result!!! <br />
-This was made in postgraduate enviroment - for a university subject. <br />
-There are no realy innovations at the bussiness logic of it. Just the implementation of the game(if,of course, isn't yet implemented this way by another person-team).
+This was made in a postgraduate enviroment - for a university subject/educational purposes. <br />
+There are no really innovations at the bussiness logic of it. Just the implementation of the game(if,of course, isn't yet implemented this way by another person-team).
 	
 ## How to add new Object to your system
-1.Create your class!!! Extend Renderables!!!(Mind that to use an object you need Coordinates/Sprite - and this is exacly why you extend that class) <br />
-2.Is your object gonna have copies on the map?!Create your ObjectList class like every other class of this kind in the package lists! <br />
-(Just because we have 2 lists, we didn't create an interface/abstract class for this operation - Yet it is pretty simple pattern if you see one of the other lists!) <br />
-3.Create your list at GameData constructor AND setScreen at GameData setScreen().Also add a reference of update at GameData update().<br />
-4.At the list , where you create your objects , you shall choose one of the available Sprite.aSprite !!! <br />
+1. Create your class!!! Extend Renderables!!!(Mind that to use an object you need Coordinates/Sprite - and this is exacly why you extend that class) <br />
+2. Is your object gonna have copies on the map?!Create your ObjectList class like every other class of this kind in the package lists! <br />
+   (Just because we have 2 lists, we didn't create an interface/abstract class for this operation - Yet it is pretty simple pattern if you see one of the other lists!) <br />
+3. Create your list at GameData constructor AND setScreen at GameData setScreen().Also add a reference of render at GameData render().<br />
+   (if you have data that needs to be updated every time ,while the render is happening, add a reference to the update() as well)<br />
+4. At the list , where you create your objects , you shall choose one of the available Sprite.aSprite !!! <br />
 Now your object is part of the game!!!
 	
 ## How to have interactions with the objects
