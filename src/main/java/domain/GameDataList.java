@@ -47,7 +47,7 @@ public final class GameDataList implements Serializable{
 	}
 
 	public String printData() {
-		String string = "Player's Name ||| score!!!";
+		String string = "Player's Name ||| score!!!\n\n";
 		for(Entry<String, GameData> pair: data.entrySet()) {
 			String temp = pair.getValue().getPlayer().printData();
 			string += temp;
