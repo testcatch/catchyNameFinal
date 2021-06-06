@@ -39,10 +39,10 @@ public final class GameData implements Serializable{
 		champion.render();
 	}
 
-	public void update(boolean[] keyCode) {render();
-	    champion.update(level,keyCode,this);
-	    allmobs.update(level,keyCode,this);
-	    
+	public void update(boolean[] keyCode) {
+		render();
+	    champion.update(keyCode,this);
+	    allmobs.update(keyCode,this);
 	}
 	
 	public Player getPlayer() {

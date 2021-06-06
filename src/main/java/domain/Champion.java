@@ -28,15 +28,15 @@ public abstract class Champion extends Entity{
 	}
 	
 	@Override
-	public void update(Level level, boolean[] keyCode, GameData gameData) {
-		super.update(level,keyCode,gameData);
+	public void update(boolean[] keyCode, GameData gameData) {
+		super.update(keyCode,gameData);
 		if(keyCode[KeyEvent.VK_F2])pickItem(gameData);
 		int xa=0,ya=0;
         if(keyCode[KeyEvent.VK_UP]) ya--;
         if(keyCode[KeyEvent.VK_DOWN])ya++;
         if(keyCode[KeyEvent.VK_RIGHT]) xa++;
         if(keyCode[KeyEvent.VK_LEFT]) xa--;
-        move(xa,ya,level);
+        move(xa,ya,gameData.getLevel());
     }
 	
 	private void pickItem(GameData data) {

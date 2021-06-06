@@ -30,11 +30,11 @@ public class Mob extends Entity implements Comparable<Mob>{
 	}
 	
 	@Override
-	public void update(Level level, boolean[] keyCode, GameData gameData) {
+	public void update(boolean[] keyCode, GameData gameData) {
 		random = new Random();
 		int xa = random.nextInt(4); 
 	    int ya = random.nextInt(4); 
-		move(xa,ya,level);
+		move(xa,ya,gameData.getLevel());
 	}
 	
 	@Override
@@ -45,7 +45,7 @@ public class Mob extends Entity implements Comparable<Mob>{
 			return ;	//if I dont return the will be moving slowly
 		}
 		
-		if(!collision(xa,ya,level)) {
+		if(!level.collision(xa,ya,coordinates)) {
 			x += xa;
 			y += ya;
 		}

@@ -70,9 +70,9 @@ public class MobList implements Serializable{
 		return null;
 	}
 
-	public void update(Level level, boolean[] keyCode, GameData gameData) {
+	public void update(boolean[] keyCode, GameData gameData) {
 		for(Mob mob:mobs) {		
-			mob.update(level,keyCode,gameData);
+			mob.update(keyCode,gameData);
 		}
 	}
 

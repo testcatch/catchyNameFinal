@@ -9,6 +9,8 @@ import javax.imageio.ImageIO;
 import com.game.catchyname.graphics.Screen;
 import com.game.catchyname.level.tile.SpawnLevel.Tile;
 
+import utilities.Coordinates;
+
 public final class Level implements Serializable{
 	/**
 	 * 
@@ -51,6 +53,21 @@ public final class Level implements Serializable{
 				getTile(x,y).render(x,y,screen);			//tile precision not pixel precision
 			}
 		}	
+	}
+	
+	public boolean collision(int xa, int ya,Coordinates coordinates) {	
+		for(int c=0 ; c<4 ; c++) {	
+			//-16 ΠΑΡΑΔΟΧΗ for player to be rendered in the middle of the screen, because to be pretty I have to render +1 tile in width
+			// and +1 in height
+			//checking 4 neighboring tiles if any of them or more are solid.If so doesn't allow moving toward them
+			//	%2 and /2 because 4 corners in a tile, *10 how big is the hitbox, +-B(BUFFER)
+			int xt = ((coordinates.getX() + xa) + c % 2 *10 - 16 +2)/16;	//  how wide is the horizontal hitbox
+			int yt = ((coordinates.getY() + ya) + c / 2 * 14  -16 +1)/16;	//	how big vertically is the hitbox
+			if(getTile(xt,yt).solid()) {
+				return true;
+			}
+		}
+		return false;	
 	}
 	
 	public Tile getTile(int x, int y) {

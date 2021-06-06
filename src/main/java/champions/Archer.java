@@ -6,7 +6,6 @@ import com.game.catchyname.graphics.Sprite;
 
 import domain.Champion;
 import domain.GameData;
-import domain.Level;
 import domain.Mob;
 import utilities.Coordinates;
 
@@ -21,8 +20,8 @@ public class Archer extends Champion{
 	}
 		
 	@Override
-	public void update(Level level,boolean[] keyCode,GameData data) {
-		super.update(level, keyCode, data);
+	public void update(boolean[] keyCode,GameData data) {
+		super.update(keyCode, data);
 		if(keyCode[KeyEvent.VK_C])this.lightAttack(data);
 		if(keyCode[KeyEvent.VK_V])test(data);
 	}
