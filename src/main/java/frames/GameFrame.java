@@ -22,10 +22,10 @@ public class GameFrame extends JPanel implements Runnable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int width = 300;
-	private int height = width / 16*9;
+	private int screenWidth = 300;
+	private int screenHeight = screenWidth / 16*9;
 	private int scale = 3;
-	private transient BufferedImage image = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB); //creating an image with an accesible buffer
+	private transient BufferedImage image = new BufferedImage(screenWidth,screenHeight,BufferedImage.TYPE_INT_RGB); //creating an image with an accesible buffer
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 	
 	private GameDataList datalist;
@@ -59,7 +59,7 @@ public class GameFrame extends JPanel implements Runnable{
 	public GameFrame(GameDataList datalist, String name) {
 		this.datalist = datalist;
 		this.gamedata = datalist.getData(name);
-		screen = new Screen(width, height);
+		screen = new Screen(screenWidth, screenHeight);
 		gamedata.setScreen(screen);
 
 
@@ -72,6 +72,7 @@ public class GameFrame extends JPanel implements Runnable{
 		frame.add(pauseButton);
 		
 		pauseButton.addActionListener(e -> {
+			//TODO:
 			pause(pauseFrame);
 		});
 		
@@ -81,8 +82,8 @@ public class GameFrame extends JPanel implements Runnable{
 		frame.setVisible(true);
 		frame.setResizable(true);
 		frame.getContentPane().add(this);
-		this.setPreferredSize(new Dimension(width * scale, height * scale));
-		frame.setSize(width * scale + 150,height * scale+50);
+		this.setPreferredSize(new Dimension(screenWidth * scale, screenHeight * scale));
+		frame.setSize(screenWidth * scale + 150,screenHeight * scale+50);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		start();
 	}
@@ -115,6 +116,7 @@ public class GameFrame extends JPanel implements Runnable{
 	}
 	
 	private void pause(JFrame f) {
+		//TODO:
 		if(!paused) {
 			pauseButton.setText("Resume");
 			f = new PauseFrame(this,gamedata);		

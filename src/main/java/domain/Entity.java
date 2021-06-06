@@ -59,6 +59,7 @@ public abstract class Entity extends Renderables implements Serializable {
 		}
 	}
 	
+	@Override
 	public void setScreen(Screen screen) {
 		for(int i=0;i<attackmoves.length;i++) {
 		    attackmoves[i].setScreen(screen);
