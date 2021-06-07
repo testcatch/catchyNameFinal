@@ -2,12 +2,10 @@ package domain;
 
 import java.io.Serializable;
 
-import com.game.catchyname.graphics.Screen;
-import com.game.catchyname.graphics.Sprite;
+import graphics.Screen;
+import graphics.Sprite;
 
-import utilities.Coordinates;
-
-public abstract class Renderables implements Serializable{
+public abstract class Renderables implements Serializable, Comparable<Renderables>{
 	/**
 	 * 
 	 */
@@ -16,6 +14,8 @@ public abstract class Renderables implements Serializable{
 	protected Sprite sprite;
 	protected Coordinates coordinates;
 	protected Screen screen;
+
+	protected Coordinates target;
 	
 	protected Renderables(Coordinates spawn, Sprite sprite) {
 		this.sprite = sprite;
@@ -50,5 +50,18 @@ public abstract class Renderables implements Serializable{
 	
 	public void setScreen(Screen screen) {
 		this.screen = screen;
+	}
+	
+	@Override
+	public int compareTo(Renderables o) {
+		double distance_this_target = Math.sqrt(Math.pow((double)this.coordinates.getX()-target.getX(),2) + Math.pow((double)this.coordinates.getY()-target.getY(),2));
+		double distance_temp_target = Math.sqrt(Math.pow((double)o.coordinates.getX()-target.getX(),2) + Math.pow((double)o.coordinates.getY()-target.getY(),2));
+		if(distance_this_target>distance_temp_target) {
+			return 1;
+		}else if(distance_this_target==distance_temp_target) {
+		    return 0;
+		}else {
+			return -1;
+		}
 	}
 }

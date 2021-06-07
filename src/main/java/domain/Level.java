@@ -6,10 +6,8 @@ import java.io.Serializable;
 
 import javax.imageio.ImageIO;
 
-import com.game.catchyname.graphics.Screen;
-import com.game.catchyname.level.tile.SpawnLevel.Tile;
-
-import utilities.Coordinates;
+import graphics.Screen;
+import tiles.Tile;
 
 public final class Level implements Serializable{
 	/**

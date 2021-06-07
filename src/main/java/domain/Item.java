@@ -2,17 +2,14 @@ package domain;
 
 import java.io.Serializable;
 
-import com.game.catchyname.graphics.Sprite;
+import graphics.Sprite;
 
-import utilities.Coordinates;
-
-public class Item extends Renderables implements Serializable,Comparable<Item>{
+public class Item extends Renderables implements Serializable{
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Coordinates target;	
 
 	public Item(Coordinates coordinates, Sprite sprite, Coordinates target) {
 		super(coordinates,sprite);
@@ -20,15 +17,20 @@ public class Item extends Renderables implements Serializable,Comparable<Item>{
 	}
 	
 	@Override
-	public int compareTo(Item o) {
-		double distance_this_target = Math.sqrt(Math.pow((double)this.coordinates.getX()-target.getX(),2) + Math.pow((double)this.coordinates.getY()-target.getY(),2));
-		double distance_temp_target = Math.sqrt(Math.pow((double)o.coordinates.getX()-target.getX(),2) + Math.pow((double)o.coordinates.getY()-target.getY(),2));
-		if(distance_this_target>distance_temp_target) {
-			return 1;
-		}else if(distance_this_target==distance_temp_target) {
-		    return 0;
+	public int hashCode() {
+		return coordinates.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o==null) {
+			return false;
+		}
+		if(this.getClass() == o.getClass()) {
+			Item temp = (Item) o;
+		   return this.coordinates.equals(temp.coordinates);
 		}else {
-			return -1;
+			return false;
 		}
 	}
 }

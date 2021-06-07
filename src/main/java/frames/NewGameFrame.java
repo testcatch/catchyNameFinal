@@ -6,16 +6,15 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import com.game.catchyname.graphics.Sprite;
-
 import champions.Archer;
 import champions.Assassin;
 import champions.Mage;
 import domain.Champion;
+import domain.Coordinates;
 import domain.GameData;
 import domain.GameDataList;
 import domain.Player;
-import utilities.Coordinates;
+import graphics.Sprite;
 
 /*
  * this class is a JFrame for the NEW GAME options:

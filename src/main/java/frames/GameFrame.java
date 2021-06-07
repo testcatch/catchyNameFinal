@@ -12,10 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import com.game.catchyname.graphics.Screen;
-
 import domain.GameData;
 import domain.GameDataList;
+import graphics.Screen;
 
 public class GameFrame extends JPanel implements Runnable{
 	/**

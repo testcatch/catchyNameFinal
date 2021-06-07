@@ -2,19 +2,16 @@ package domain;
 
 import java.util.Random;
 
-import com.game.catchyname.graphics.Sprite;
+import graphics.Sprite;
 
-import utilities.Coordinates;
-
-public class Mob extends Entity implements Comparable<Mob>{
+public class Mob extends Entity{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	private Item loot;
 	private Random random;
-	private Coordinates target;
-	private int points = 10;
+	private int points = 5;
 	
 	public Mob(Coordinates spawn,Sprite sprite, Coordinates target) {
 		super(spawn,sprite,Sprite.testingSprite);
@@ -29,12 +26,29 @@ public class Mob extends Entity implements Comparable<Mob>{
 		loot = null;
 	}
 	
-	@Override
-	public void update(boolean[] keyCode, GameData gameData) {
+	public void update(GameData gameData) {
 		random = new Random();
 		int xa = random.nextInt(4); 
 	    int ya = random.nextInt(4); 
 		move(xa,ya,gameData.getLevel());
+	}
+	
+	@Override
+	public int hashCode() {
+		return coordinates.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o==null) {
+			return false;
+		}
+		if(this.getClass() == o.getClass()) {
+			Mob temp = (Mob) o;
+		   return this.coordinates.equals(temp.coordinates);
+		}else {
+			return false;
+		}
 	}
 	
 	@Override
@@ -50,19 +64,6 @@ public class Mob extends Entity implements Comparable<Mob>{
 			y += ya;
 		}
 		coordinates.update(x,y);
-	}
-
-	@Override
-	public int compareTo(Mob o) {
-		double distance_this_target = Math.sqrt(Math.pow((double)this.coordinates.getX()-target.getX(),2) + Math.pow((double)this.coordinates.getY()-target.getY(),2));
-		double distance_temp_target = Math.sqrt(Math.pow((double)o.coordinates.getX()-target.getX(),2) + Math.pow((double)o.coordinates.getY()-target.getY(),2));
-		if(distance_this_target>distance_temp_target) {
-			return 1;
-		}else if(distance_this_target==distance_temp_target) {
-		    return 0;
-		}else {
-			return -1;
-		}
 	}
 
 	public void givePoints(Player player) {

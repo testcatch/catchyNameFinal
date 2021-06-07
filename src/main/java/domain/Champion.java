@@ -3,10 +3,7 @@ package domain;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
-import com.game.catchyname.graphics.Sprite;
-
-import domain.lists.ItemList;
-import utilities.Coordinates;
+import graphics.Sprite;
 
 public abstract class Champion extends Entity{
 	/**
@@ -19,19 +16,20 @@ public abstract class Champion extends Entity{
 	protected Champion(Coordinates playerSpawn,Sprite sprite,Sprite projectilesprite) {
 		super(playerSpawn,sprite,projectilesprite);
 		inventory = new ArrayList<>();
-		inventory.add(new Item(new Coordinates(0,0,6), projectilesprite, playerSpawn));
-		active = new Item(new Coordinates(0,0,8), projectilesprite, playerSpawn);
 	}
 	
 	public ArrayList<Item> getInventory() {
 		return inventory;
 	}
 	
-	@Override
 	public void update(boolean[] keyCode, GameData gameData) {
-		super.update(keyCode,gameData);
+        if(keyCode[KeyEvent.VK_A])setDirection(0);
+        if(keyCode[KeyEvent.VK_W])setDirection(1);
+        if(keyCode[KeyEvent.VK_D])setDirection(2);
+        if(keyCode[KeyEvent.VK_S])setDirection(3);
 		if(keyCode[KeyEvent.VK_F2])pickItem(gameData);
-		int xa=0,ya=0;
+		int xa=0;
+	    int ya=0;
         if(keyCode[KeyEvent.VK_UP]) ya--;
         if(keyCode[KeyEvent.VK_DOWN])ya++;
         if(keyCode[KeyEvent.VK_RIGHT]) xa++;
@@ -40,13 +38,13 @@ public abstract class Champion extends Entity{
     }
 	
 	private void pickItem(GameData data) {
-		
-		ItemList list = data.getAllItems();
+		RenderablesList list = data.getRenderables();
 		list.sort();
-		Item temp = list.getItem(this.getCoordinates());
-		if(temp!=null) {
+		 Renderables object = list.getRenderable(this.coordinates);
+		 if(object!=null&&object instanceof Item) {
+			Item temp = (Item) object;
 			inventory.add(temp);
-		    list.remove(temp);
+			list.remove(temp);
 		}
 	}
 
@@ -69,5 +67,28 @@ public abstract class Champion extends Entity{
 
 	public void setActiveItem(Item selected) {
 		active = selected;
+	}
+	
+	@Override
+	public int hashCode() {
+		return coordinates.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o==null) {
+			return false;
+		}
+		if(this.getClass() == o.getClass()) {
+			Champion temp = (Champion) o;
+		   return this.coordinates.equals(temp.coordinates);
+		}else {
+			return false;
+		}
+	}
+	
+	@Override
+	public int compareTo(Renderables o) {
+		return 0;
 	}
 }

@@ -2,29 +2,27 @@ package domain;
 
 import java.io.Serializable;
 
-import com.game.catchyname.graphics.Screen;
-
-import domain.lists.ItemList;
-import domain.lists.MobList;
+import graphics.Screen;
 
 public final class GameData implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	/*
+	 * The only object that is NOT INSIDE RenderablesList is champion
+	 */
 	private Player player;
 	private Champion champion;
 	private Level level;
-	private MobList allmobs;
-	private ItemList allItems;
+	private RenderablesList renderableslist;
 	private Screen screen;
 	
 	public GameData(Player player,String levelid) {
 		this.player = player;
 		this.champion = player.getChampion();
 		level = new Level(levelid);
-		allmobs = new MobList(level,champion.coordinates);
-		allItems = new ItemList(level,champion.coordinates);
+		renderableslist = new RenderablesList(level,champion.coordinates);
 	}
 	
 	public String printData() {
@@ -34,23 +32,22 @@ public final class GameData implements Serializable{
 	public void render() {
 		screen.clear();
 		level.render(champion.getCoordinates().getX(),champion.getCoordinates().getY());
-		allmobs.render(allItems, player);
-		allItems.render();
 		champion.render();
+		renderableslist.render();	
 	}
 
 	public void update(boolean[] keyCode) {
 		render();
 	    champion.update(keyCode,this);
-	    allmobs.update(keyCode,this);
+	    renderableslist.update(this);
 	}
 	
 	public Player getPlayer() {
 		return player;
 	}
 
-	public MobList getAllmobs() {
-		return allmobs;
+	public RenderablesList getRenderables() {
+		return renderableslist;
 	}
 
 	public Level getLevel() {
@@ -60,17 +57,12 @@ public final class GameData implements Serializable{
 	public void setScreen(Screen screen) {
 		this.screen = screen;
 		level.setScreen(screen);
-		allmobs.setScreen(screen);
-		allItems.setScreen(screen);
 		champion.setScreen(screen);
-	}
-
-	public ItemList getAllItems() {
-		return allItems;
+		renderableslist.setScreen(screen);	
 	}
 
 	public int gameIsOn() {
-		if(allmobs == null) {
+		if(!renderableslist.mobsExist()) {
 			return 0;
 		}else if(!champion.isAlive()) {
 			return 1;

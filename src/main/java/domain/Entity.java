@@ -1,12 +1,9 @@
 package domain;
 
-import java.awt.event.KeyEvent;
 import java.io.Serializable;
 
-import com.game.catchyname.graphics.Screen;
-import com.game.catchyname.graphics.Sprite;
-
-import utilities.Coordinates;
+import graphics.Screen;
+import graphics.Sprite;
 
 public abstract class Entity extends Renderables implements Serializable {
 	
@@ -15,7 +12,7 @@ public abstract class Entity extends Renderables implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	protected AttackMove[] attackmoves = new AttackMove[15];
+	protected Projectiles[] projectiles = new Projectiles[15];
 	
 	protected int x;
 	protected int y;
@@ -54,37 +51,46 @@ public abstract class Entity extends Renderables implements Serializable {
 	}
 	
 	public void createProjectiles(Sprite projectilesprite) {
-		for(int i=0;i<attackmoves.length;i++) {
-			attackmoves[i] = new AttackMove(new Coordinates(x/16,y/16,5),projectilesprite);
+		for(int i=0;i<projectiles.length;i++) {
+			projectiles[i] = new Projectiles(new Coordinates(x/16,y/16,5),projectilesprite);
+		}
+	}
+	
+	@Override
+	public int hashCode() {
+		return coordinates.hashCode();
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if(o==null) {
+			return false;
+		}
+		if(this.getClass() == o.getClass()) {
+			Entity temp = (Entity) o;
+		   return this.coordinates.equals(temp.coordinates);
+		}else {
+			return false;
 		}
 	}
 	
 	@Override
 	public void setScreen(Screen screen) {
-		for(int i=0;i<attackmoves.length;i++) {
-		    attackmoves[i].setScreen(screen);
+		for(int i=0;i<projectiles.length;i++) {
+			projectiles[i].setScreen(screen);
 		}
 		super.setScreen(screen);
 	}
 
 	public void updateAttacks() {
-		for(int i=0;i<attackmoves.length;i++) {
-		    attackmoves[i].coordinates.update(x, y);
+		for(int i=0;i<projectiles.length;i++) {
+			projectiles[i].coordinates.update(x, y);
 		}
 	}
 	
 	public void setDirection(int dir) {
-		for(int i=0;i<attackmoves.length;i++) {
-		       attackmoves[i].setDirection(dir);
+		for(int i=0;i<projectiles.length;i++) {
+			projectiles[i].setDirection(dir);
 		}
 	}
-	
-	public void update(boolean[] keyCode, GameData gameData) {
-        if(keyCode[KeyEvent.VK_A])setDirection(0);
-        if(keyCode[KeyEvent.VK_W])setDirection(1);
-        if(keyCode[KeyEvent.VK_D])setDirection(2);
-        if(keyCode[KeyEvent.VK_S])setDirection(3);
-    }
-	
-	
 }

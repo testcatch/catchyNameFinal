@@ -2,11 +2,10 @@ package champions;
 
 import java.awt.event.KeyEvent;
 
-import com.game.catchyname.graphics.Sprite;
-
 import domain.Champion;
+import domain.Coordinates;
 import domain.GameData;
-import utilities.Coordinates;
+import graphics.Sprite;
 
 public class Assassin extends Champion{
 	/**
