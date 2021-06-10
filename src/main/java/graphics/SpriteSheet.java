@@ -19,6 +19,8 @@ public class SpriteSheet implements Serializable{
 	public static SpriteSheet tiles = new SpriteSheet("/textures/sheets/SpriteSheet.png/",256);
 	public static SpriteSheet spawnLevelTiles = new SpriteSheet("/textures/sheets/SpawnLevelSprites.png/",48);
 	public static SpriteSheet test = new SpriteSheet("/textures/sheets/assasin1frontstep1.png/",32);
+	public static SpriteSheet helloWorld = new SpriteSheet("/textures/sheets/SpriteSheet1.png/",256);
+	//only the helloWorld will exist from now on and the player Sprites all the other will be deleted 
 	
 	public SpriteSheet(String path, int size) {
 		

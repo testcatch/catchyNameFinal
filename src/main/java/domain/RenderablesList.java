@@ -41,7 +41,6 @@ public class RenderablesList implements Serializable{
 		random = new Random();
 		int itemCounter = random.nextInt(1000);
 		int hitbox = 5;
-
 		for(int i=0;i<itemCounter;i++) {
 			int xLimit = random.nextInt(100); 
 		    int yLimit = random.nextInt(100);
