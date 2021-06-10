@@ -5,8 +5,8 @@ import graphics.Sprite;
 
 public class SpawnVoidTile extends Tile{
 
-	public SpawnVoidTile(Sprite sprite) {
-		super(sprite);
+	public SpawnVoidTile(Sprite sprite,int id) {
+		super(sprite,id);
 	}
 
 	public void render(int x, int y, Screen screen) {

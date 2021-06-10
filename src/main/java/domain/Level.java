@@ -69,13 +69,13 @@ public final class Level implements Serializable{
 	}
 	
 	public Tile getTile(int x, int y) {
-		if(x<0 || y<0 || x>= width || y>= height)return Tile.spawnVoid;
-		if(tiles[x+y*width] == Tile.colSpawnGrass)return Tile.getTile(Tile.colSpawnGrass);
-		if(tiles[x+y*width] == Tile.colSpawnWater )return Tile.spawnWaterTile;
-		if(tiles[x+y*width] == Tile.colSpawnBricks1 )return Tile.getTile(Tile.colSpawnBricks1);
-		if(tiles[x+y*width] == Tile.colSpawnBricks2 )return Tile.getTile(Tile.colSpawnBricks2);
-		if(tiles[x+y*width] == Tile.colSpawnBlood )return Tile.spawnBlood;
-		return Tile.spawnVoid;
+		if(x<0 || y<0 || x>= width || y>= height)return Tile.getTile(0xff000000);
+		if(tiles[x+y*width] == 0xff00ff21)return Tile.getTile( 0xff00ff21);
+		if(tiles[x+y*width] ==  0xff0026ff )return Tile.getTile(0xff0026ff);
+		if(tiles[x+y*width] == 0xff404040 )return Tile.getTile(0xff404040);
+		if(tiles[x+y*width] ==  0xffffd800)return Tile.getTile(0xffffd800);
+		if(tiles[x+y*width] ==  0xffff0000)return Tile.getTile(0xffff0000);
+		return Tile.getTile(0xff000000);
 	}	
 	
 	public void setScreen(Screen screen) {
