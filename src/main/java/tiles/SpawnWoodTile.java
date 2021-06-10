@@ -5,8 +5,8 @@ import graphics.Sprite;
 
 public class SpawnWoodTile extends Tile{
 
-	public SpawnWoodTile(Sprite sprite) {
-		super(sprite);
+	public SpawnWoodTile(Sprite sprite,int id) {
+		super(sprite,id);
 	}
 
 	public void render(int x, int y, Screen screen) {

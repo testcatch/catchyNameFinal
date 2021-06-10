@@ -5,8 +5,8 @@ import graphics.Sprite;
 
 public class SpawnWaterTile extends Tile{
 	
-	public SpawnWaterTile(Sprite sprite) {
-		super(sprite);
+	public SpawnWaterTile(Sprite sprite,int id) {
+		super(sprite,id);	
 	}
 
 	public void render(int x, int y, Screen screen) {

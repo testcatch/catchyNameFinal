@@ -5,8 +5,8 @@ import graphics.Sprite;
 
 public class SpawnGrassTile extends Tile{
 
-	public SpawnGrassTile(Sprite sprite) {
-		super(sprite);
+	public SpawnGrassTile(Sprite sprite,int id) {
+		super(sprite,id);
 	}
 
 	public void render(int x, int y, Screen screen) {

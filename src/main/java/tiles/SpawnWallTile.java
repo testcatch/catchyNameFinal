@@ -5,8 +5,8 @@ import graphics.Sprite;
 
 public class SpawnWallTile extends Tile{
 
-	public SpawnWallTile(Sprite sprite) {
-		super(sprite);
+	public SpawnWallTile(Sprite sprite,int id) {
+		super(sprite,id);
 	}
 
 	public void render(int x, int y, Screen screen) {

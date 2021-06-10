@@ -70,10 +70,10 @@ public final class Level implements Serializable{
 	
 	public Tile getTile(int x, int y) {
 		if(x<0 || y<0 || x>= width || y>= height)return Tile.spawnVoid;
-		if(tiles[x+y*width] == Tile.colSpawnGrass)return Tile.spawn_GrassTile;
+		if(tiles[x+y*width] == Tile.colSpawnGrass)return Tile.getTile(Tile.colSpawnGrass);
 		if(tiles[x+y*width] == Tile.colSpawnWater )return Tile.spawnWaterTile;
-		if(tiles[x+y*width] == Tile.colSpawnBricks1 )return Tile.spawnBricks1;
-		if(tiles[x+y*width] == Tile.colSpawnBricks2 )return Tile.spawnBricks2;
+		if(tiles[x+y*width] == Tile.colSpawnBricks1 )return Tile.getTile(Tile.colSpawnBricks1);
+		if(tiles[x+y*width] == Tile.colSpawnBricks2 )return Tile.getTile(Tile.colSpawnBricks2);
 		if(tiles[x+y*width] == Tile.colSpawnBlood )return Tile.spawnBlood;
 		return Tile.spawnVoid;
 	}	

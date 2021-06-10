@@ -5,8 +5,8 @@ import graphics.Sprite;
 
 public class SpawnerTile extends Tile{
 
-	public SpawnerTile(Sprite sprite) {
-		super(sprite);
+	public SpawnerTile(Sprite sprite,int id) {
+		super(sprite,id);
 	}
 
 	public void render(int x, int y, Screen screen) {
