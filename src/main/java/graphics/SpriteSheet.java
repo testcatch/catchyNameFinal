@@ -13,20 +13,20 @@ public class SpriteSheet implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private String path;
-	public final int SIZE;
-	public int[] pixels;
+	private int size;
+	private int[] pixels;
 
-	public static SpriteSheet tiles = new SpriteSheet("SpriteSheet.png/",256);
-	public static SpriteSheet spawnLevelTiles = new SpriteSheet("SpawnLevelSprites.png/",48);
-	public static SpriteSheet test = new SpriteSheet("assasin1frontstep1.png/",32);
-	public static SpriteSheet helloWorld = new SpriteSheet("SpriteSheet1.png/",256);
+	public static final SpriteSheet tiles = new SpriteSheet("SpriteSheet.png/",256);
+	public static final SpriteSheet spawnLevelTiles = new SpriteSheet("SpawnLevelSprites.png/",48);
+	public static final SpriteSheet test = new SpriteSheet("assasin1frontstep1.png/",32);
+	public static final SpriteSheet helloWorld = new SpriteSheet("SpriteSheet1.png/",256);
 	//only the helloWorld will exist from now on and the player Sprites all the other will be deleted 
 	
 	public SpriteSheet(String path, int size) {
 		
 		this.path = path;
-		this.SIZE = size;
-		pixels = new int[SIZE * SIZE];
+		this.size = size;
+		pixels = new int[getSIZE() * getSIZE()];
 		load();
 	}
 	
@@ -35,12 +35,20 @@ public class SpriteSheet implements Serializable{
 			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource("/textures/sheets/"+ path));
 			int w = image.getWidth();
 			int h = image.getHeight();
-			image.getRGB(0, 0, w, h, pixels, 0, w);
+			image.getRGB(0, 0, w, h, getPixels(), 0, w);
 		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		
+	}
+
+	public int getSIZE() {
+		return size;
+	}
+
+	public int[] getPixels() {
+		return pixels;
 	}
 	
 	

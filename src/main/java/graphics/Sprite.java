@@ -199,7 +199,7 @@ public class Sprite implements Serializable {
 	private void load() {
 		for(int i=0 ; i < getSize() ; i++) {
 			for(int j=0 ; j< getSize() ; j++) {
-				getPixels()[j+i*getSize()] = sheet.pixels[( j + this.x) + ( i+ this.y) * sheet.SIZE];
+				getPixels()[j+i*getSize()] = sheet.getPixels()[( j + this.x) + ( i+ this.y) * sheet.getSIZE()];
 			}
 		}
 	}

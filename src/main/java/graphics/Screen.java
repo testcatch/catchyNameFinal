@@ -14,7 +14,7 @@ public class Screen implements Serializable{
 	private int mapSize = 8;
 	
 	private int tiles=64;
-	public int[]tilesarray = new int[tiles*tiles]; 
+	private int[]tilesarray = new int[tiles*tiles]; 
 	
 	private int width;
 	private int height;
