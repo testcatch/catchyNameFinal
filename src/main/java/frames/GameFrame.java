@@ -168,7 +168,7 @@ public class GameFrame extends JPanel implements Runnable{
 	@Override
 	public void paintComponent(Graphics g) {	
 		for(int i=0;i<pixels.length;i++) {
-			pixels[i] = screen.pixels[i];
+			pixels[i] = screen.getPixels()[i];
 		}
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.dispose(); 

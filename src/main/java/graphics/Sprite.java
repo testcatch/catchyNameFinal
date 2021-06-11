@@ -11,8 +11,9 @@ public class Sprite implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	private int size;
-	private int x,y;
-	public int[] pixels;
+	private int x;
+	private int y;
+	private int[] pixels;
 	private SpriteSheet sheet;
 	
 	//Player Sprites
@@ -191,18 +192,21 @@ public class Sprite implements Serializable {
 	
 	private void setColor(int color) {
 	 	for(int i=0 ; i< getSize()*getSize() ; i++) {
-	 		pixels[i] = color;
+	 		getPixels()[i] = color;
 	 	}
 	}
 	
 	private void load() {
 		for(int i=0 ; i < getSize() ; i++) {
 			for(int j=0 ; j< getSize() ; j++) {
-				pixels[j+i*getSize()] = sheet.pixels[( j + this.x) + ( i+ this.y) * sheet.SIZE];
+				getPixels()[j+i*getSize()] = sheet.pixels[( j + this.x) + ( i+ this.y) * sheet.SIZE];
 			}
 		}
 	}
 	public int getSize() {
 		return size;
+	}
+	public int[] getPixels() {
+		return pixels;
 	}
 }

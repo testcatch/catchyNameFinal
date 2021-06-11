@@ -8,7 +8,7 @@ import graphics.Sprite;
 public class Tile {
 	
 	private Sprite sprite;
-	private static HashMap<Integer,Tile> tileHash = new HashMap<Integer,Tile>();
+	private static HashMap<Integer,Tile> tileHash = new HashMap<>();
 	private boolean solid;
 	
 

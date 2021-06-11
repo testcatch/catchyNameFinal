@@ -11,13 +11,16 @@ public class Screen implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public final int MAP_SIZE = 8;
-	public final int MAP_SIZE_MASK = MAP_SIZE -1;
-	private final int TILES=64;
-	private int width, height;
-	public int[] pixels;
-	public int[]tilesarray = new int[TILES*TILES];    //4096 tiles
-	public int xOffset,yOffset;
+	private int mapSize = 8;
+	
+	private int tiles=64;
+	public int[]tilesarray = new int[tiles*tiles]; 
+	
+	private int width;
+	private int height;
+	private int[] pixels;
+	private int xOffset;
+	private int yOffset;
 	private Random random = new Random();   
 	
 	
@@ -27,7 +30,7 @@ public class Screen implements Serializable{
 		this.height = height;
 		pixels = new int[width*height];    //0-50.399 pixels
 		
-		for(int i=0; i< MAP_SIZE *MAP_SIZE ;i++) {
+		for(int i=0; i< mapSize *mapSize ;i++) {
 			tilesarray[i]= random.nextInt(0xffffff);
 			tilesarray[0] = 0;
 		}
@@ -37,8 +40,8 @@ public class Screen implements Serializable{
 	
 	//set everything to black
 	public void clear() {
-		for(int i=0; i<pixels.length;i++) {
-			pixels[i] = 0;
+		for(int i=0; i<getPixels().length;i++) {
+			getPixels()[i] = 0;
 		}
 	}
 	
@@ -58,7 +61,7 @@ public class Screen implements Serializable{
 				if(xa < -tile.getSprite().getSize() || xa >= getWidth() || ya < 0 || ya >= getHeight())break;
 				if(xa<0) xa=0;
 				//^^^^^^^^^only render the tiles I am seeing and not all the map, important line of code
-				pixels[xa+ya*getWidth()] = tile.getSprite().pixels[x+y*tile.getSprite().getSize()];
+				getPixels()[xa+ya*getWidth()] = tile.getSprite().getPixels()[x+y*tile.getSprite().getSize()];
 				//^^^^^^^^^where the sprite is rendered----------which pixels of the sprite are rendered
 				
 			}
@@ -85,10 +88,10 @@ public class Screen implements Serializable{
 				int xa = x + xp;   
 				if(xa < -32 || xa >= getWidth() || ya < 0 || ya >= getHeight())break;
 				if(xa<0) xa=0;
-				int col =sprite.pixels[x+y*32];
+				int col =sprite.getPixels()[x+y*32];
 				if(col != 0xffc2185b)
 				//^^^^^^^^^only render the tiles I am seeing and not all the map, important line of code
-					pixels[xa+ya*getWidth()] = sprite.pixels[x+y*sprite.getSize()];
+					getPixels()[xa+ya*getWidth()] = sprite.getPixels()[x+y*sprite.getSize()];
 				//^^^^^^^^^where the sprite is rendered----------which pixels of the sprite are rendered
 			}
 		}
@@ -118,6 +121,10 @@ public class Screen implements Serializable{
 
 	public int getHeight() {
 		return height;
+	}
+
+	public int[] getPixels() {
+		return pixels;
 	}
 	
 	
