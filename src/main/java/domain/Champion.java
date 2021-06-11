@@ -2,6 +2,7 @@ package domain;
 
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.List;
 
 import graphics.Sprite;
 
@@ -18,7 +19,7 @@ public abstract class Champion extends Entity{
 		inventory = new ArrayList<>();
 	}
 	
-	public ArrayList<Item> getInventory() {
+	public List<Item> getInventory() {
 		return inventory;
 	}
 	
@@ -41,7 +42,7 @@ public abstract class Champion extends Entity{
 		RenderablesList list = data.getRenderables();
 		list.sort();
 		 Renderables object = list.getRenderable(this.coordinates);
-		 if(object!=null&&object instanceof Item) {
+		 if(object instanceof Item) {
 			Item temp = (Item) object;
 			inventory.add(temp);
 			list.remove(temp);

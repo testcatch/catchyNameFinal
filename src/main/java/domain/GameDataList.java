@@ -38,8 +38,7 @@ public final class GameDataList implements Serializable{
 	
 	public static GameDataList loadGame() {
 		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("game.ser"))){
-			GameDataList data = (GameDataList)in.readObject();
-		    return data;
+		    return (GameDataList)in.readObject();
 		} catch (IOException|ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -47,11 +46,11 @@ public final class GameDataList implements Serializable{
 	}
 
 	public String printData() {
-		String string = "Player's Name ||| score!!!\n\n";
+		StringBuilder bld = new StringBuilder();
+		bld.append("Player's Name ||| score!!!\n\n");
 		for(Entry<String, GameData> pair: data.entrySet()) {
-			String temp = pair.getValue().getPlayer().printData();
-			string += temp;
+			bld.append(pair.getValue().getPlayer().printData());
 		}
-		return string;
+		return bld.toString();
 	}
 }

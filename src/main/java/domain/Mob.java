@@ -10,7 +10,6 @@ public class Mob extends Entity{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Item loot;
-	private Random random;
 	private int points = 5;
 	
 	public Mob(Coordinates spawn,Sprite sprite, Coordinates target) {
@@ -27,7 +26,7 @@ public class Mob extends Entity{
 	}
 	
 	public void update(GameData gameData) {
-		random = new Random();
+		Random random = new Random();
 		int xa = random.nextInt(4); 
 	    int ya = random.nextInt(4); 
 		move(xa,ya,gameData.getLevel());

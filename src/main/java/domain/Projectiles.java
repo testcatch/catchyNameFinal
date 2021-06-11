@@ -36,7 +36,7 @@ public class Projectiles extends Renderables{
 		 RenderablesList list = data.getRenderables();
 		 list.sort();
 		 Renderables object = list.getRenderable(this.coordinates);
-		 if(object!=null&&object instanceof Mob) {
+		 if(object instanceof Mob) {
 	        Mob temp = (Mob) object;
 		    champ.damage(temp);
 			   if(temp.isAlive()) {

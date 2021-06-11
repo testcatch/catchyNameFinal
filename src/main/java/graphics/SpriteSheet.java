@@ -16,9 +16,9 @@ public class SpriteSheet implements Serializable{
 	public final int SIZE;
 	public int[] pixels;
 	
-	public static SpriteSheet tiles = new SpriteSheet("/textures/sheets/SpriteSheet.png/",256);
-	public static SpriteSheet spawnLevelTiles = new SpriteSheet("/textures/sheets/SpawnLevelSprites.png/",48);
-	public static SpriteSheet test = new SpriteSheet("/textures/sheets/assasin1frontstep1.png/",32);
+	public static SpriteSheet tiles = new SpriteSheet("SpriteSheet.png/",256);
+	public static SpriteSheet spawnLevelTiles = new SpriteSheet("SpawnLevelSprites.png/",48);
+	public static SpriteSheet test = new SpriteSheet("assasin1frontstep1.png/",32);
 	
 	public SpriteSheet(String path, int size) {
 		
@@ -30,7 +30,7 @@ public class SpriteSheet implements Serializable{
 	
 	private void load() {
 		try {
-			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
+			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource("/textures/sheets/"+ path));
 			int w = image.getWidth();
 			int h = image.getHeight();
 			image.getRGB(0, 0, w, h, pixels, 0, w);
