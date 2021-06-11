@@ -15,10 +15,12 @@ public class SpriteSheet implements Serializable{
 	private String path;
 	public final int SIZE;
 	public int[] pixels;
-	
+
 	public static SpriteSheet tiles = new SpriteSheet("SpriteSheet.png/",256);
 	public static SpriteSheet spawnLevelTiles = new SpriteSheet("SpawnLevelSprites.png/",48);
 	public static SpriteSheet test = new SpriteSheet("assasin1frontstep1.png/",32);
+	public static SpriteSheet helloWorld = new SpriteSheet("SpriteSheet1.png/",256);
+	//only the helloWorld will exist from now on and the player Sprites all the other will be deleted 
 	
 	public SpriteSheet(String path, int size) {
 		

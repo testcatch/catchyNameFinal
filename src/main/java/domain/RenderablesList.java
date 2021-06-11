@@ -15,14 +15,18 @@ public class RenderablesList implements Serializable{
 	private static final long serialVersionUID = 1L;
 	protected ArrayList<Renderables> renderables;
 	protected Random random;
+	private Level level;
+	private Coordinates target;
 	
 	public RenderablesList(Level level, Coordinates target) {
 		renderables = new ArrayList<>();
-		createItems(level,target);
-		createMobs(level,target);
+		this.level = level;
+		this.target = target;
+		createItems();
+		createMobs();
 	}
 	
-	private void createMobs(Level level, Coordinates target) {
+	private void createMobs() {
 		random = new Random();
 		int mobCounter = random.nextInt(1000);
 		int hitbox = 5;
@@ -37,11 +41,10 @@ public class RenderablesList implements Serializable{
 		}
 	}
 
-	private void createItems(Level level, Coordinates target) {
+	private void createItems() {
 		random = new Random();
 		int itemCounter = random.nextInt(1000);
 		int hitbox = 5;
-
 		for(int i=0;i<itemCounter;i++) {
 			int xLimit = random.nextInt(100); 
 		    int yLimit = random.nextInt(100);

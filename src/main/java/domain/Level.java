@@ -7,7 +7,6 @@ import java.io.Serializable;
 import javax.imageio.ImageIO;
 
 import graphics.Screen;
-import tiles.Tile;
 
 public final class Level implements Serializable{
 	/**
@@ -68,14 +67,16 @@ public final class Level implements Serializable{
 		return false;	
 	}
 	
+	
 	public Tile getTile(int x, int y) {
-		if(x<0 || y<0 || x>= width || y>= height)return Tile.spawnVoid;
-		if(tiles[x+y*width] == Tile.colSpawnGrass)return Tile.spawn_GrassTile;
-		if(tiles[x+y*width] == Tile.colSpawnWater )return Tile.spawnWaterTile;
-		if(tiles[x+y*width] == Tile.colSpawnBricks1 )return Tile.spawnBricks1;
-		if(tiles[x+y*width] == Tile.colSpawnBricks2 )return Tile.spawnBricks2;
-		if(tiles[x+y*width] == Tile.colSpawnBlood )return Tile.spawnBlood;
-		return Tile.spawnVoid;
+		if(x<0 || y<0 || x>= width || y>= height) {
+			return Tile.getTile(0xff696969);
+		}
+	    Tile tile = Tile.getTile(tiles[x+y*width]);
+		if(tile!=null) {
+			return tile;
+		}
+		return Tile.getTile(0xff696969);
 	}	
 	
 	public void setScreen(Screen screen) {
