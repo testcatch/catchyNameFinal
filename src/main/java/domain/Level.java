@@ -39,8 +39,8 @@ public final class Level implements Serializable{
 		//>>4 == /16 . I am dividing into tiles instead of pixels
 		// Because I am dealing with rendering tiles its not the same as rendering a player cause a player can be in between 2 tiles but a tile is after the other.Bitwise is a lot faster 
 		screen.setOffset(xScroll, yScroll);
-		int x0 = xScroll >> 4; 
-		int x1 = (xScroll + screen.getWidth() + 16) >> 4; 		
+		int x0 = xScroll >>4; 
+		int x1 = (xScroll + screen.getWidth() + 16) >>4; 		
 		int y0 = yScroll >>4;
 		int y1 = (yScroll + screen.getHeight() +16) >>4;		
 		
