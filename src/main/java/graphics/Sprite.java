@@ -17,9 +17,9 @@ public class Sprite implements Serializable {
 	private SpriteSheet sheet;
 	
 	
-
+	//playerSprites
 	public static final Sprite testingSprite = new Sprite(32,2,4,SpriteSheet.helloWorld);
-	//-------------------------------------------------------------------------------------------
+	//tiles
 	private static final Sprite grass_shoppable = new Sprite(16,0,0,SpriteSheet.helloWorld,0xff006b00,false);
 	private static final Sprite grass_flower_shoppable = new Sprite(16,0,1,SpriteSheet.helloWorld,0xff00ff21,false);
 	private static final Sprite grass_rocky_shoppable = new Sprite(16,0,2,SpriteSheet.helloWorld,0xff4cff00,false);
@@ -125,7 +125,7 @@ public class Sprite implements Serializable {
 	private static final Sprite fence01 = new Sprite(16,1,14,SpriteSheet.helloWorld,0xffcd4c01,true);
 	private static final Sprite fence10 = new Sprite(16,0,15,SpriteSheet.helloWorld,0xffcd4c02,true);
 	private static final Sprite fence11 = new Sprite(16,1,15,SpriteSheet.helloWorld,0xffcd4c03,true);
- 	
+ 	//not tiles
  	public static final Sprite potionAttackGreen = new Sprite(16,7,0,SpriteSheet.helloWorld);
  	public static final Sprite potionAttackRed = new Sprite(16,9,0,SpriteSheet.helloWorld);
  	public static final Sprite potionAttackPurple = new Sprite(16,1,3,SpriteSheet.helloWorld);

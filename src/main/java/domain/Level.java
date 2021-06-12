@@ -58,8 +58,8 @@ public final class Level implements Serializable{
 			// and +1 in height
 			//checking 4 neighboring tiles if any of them or more are solid.If so doesn't allow moving toward them
 			//	%2 and /2 because 4 corners in a tile, *10 how big is the hitbox, +-B(BUFFER)
-			int xt = ((coordinates.getX() + xa) + c % 2 *10 - 16 +2)/16;	//  how wide is the horizontal hitbox
-			int yt = ((coordinates.getY() + ya) + c / 2 * 14  -16 +1)/16;	//	how big vertically is the hitbox
+			int xt = ((coordinates.getX() + xa) + c % 2 *17 - 16 +7)/16;	//  how wide is the horizontal hitbox
+			int yt = ((coordinates.getY() + ya) + c / 2 *19  -16 +6)/16;	//	how big vertically is the hitbox
 			if(getTile(xt,yt).solid()) {
 				return true;
 			}
