@@ -19,20 +19,19 @@ There are no really innovations at the bussiness logic of it. Just the implement
 	
 ## How to add new Object to your system
 1. Create your class!!! Extend Renderables!!!(Mind that to use an object you need Coordinates/Sprite - and this is exacly why you extend that class) <br />
-2. Is your object gonna have copies on the map?!Create your ObjectList class like every other class of this kind in the package lists! <br />
-   (Just because we have 2 lists, we didn't create an interface/abstract class for this operation - Yet it is pretty simple pattern if you see one of the other lists!) <br />
-3. Create your list at GameData constructor AND setScreen at GameData setScreen().Also add a reference of render at GameData render().<br />
-   (if you have data that needs to be updated every time ,while the render is happening, add a reference to the update() as well)<br />
-4. At the list , where you create your objects , you shall choose one of the available Sprite.aSprite !!! <br />
+2. Is your object gonna have copies on the map?! <br />
+   Add a create method to RenderablesList constructor and creates your objects there!!!<br />
 Now your object is part of the game!!!
 	
 ## How to have interactions with the objects
 Bare in mind that the whole physics/interactions between objects is beeing done with a simple line!-><br />
 ```
-Object temp = gamedata.getAllObjects().getObject(entity.getCoordinates()); // of course this can be modified - entity shall be champion in most cases
-if(temp!=null){//YOUR BUSSINES LOGIC ALGORITHM!!!}
+ Renderables object = list.getRenderable(this.coordinates);
+if(object instanceof YOURCLASS_newObject) {
+   //do stuff!!!
+}
 ```
-This line returns an object on the list(from arrayList that its list has as field) that its Coordinates are EQUAL to champions Coordinates.<br />
+This line returns an object on the list that its Coordinates are EQUAL to champions Coordinates.<br />
 So it may have an object at that location or not. Of course you get the first instance of it at the list (closest to 0).<br />
 Every object has hitbox and equals does soemthing like that-> 4=5.<br />
 So what about if you want the Actual closest object???<br />
@@ -47,9 +46,11 @@ What about a champion?Let's assume you want at pressedKey R to excecute a unique
 Just go to your champion class and at update() add an if(key.R)yourNewMethod(data_for_your_algorithm);<br />
 Create your method there.Simple as that!!!<br />
 <br />
-COMMENT:you may want to also add parameter to update the double delta from GameFrame->run(){data.update(delta)}<br />
-        Why?Because if you want your algorithm to operate with time,you just need to consider the timer that controlls the speed of render().<br />
-        BARE IN MIND - AttackMove(the object repressenting the projectiles) render() ONLY when a method of the update() is beeing called.<br />
-        So you can interact with time-render of attacks.
         
 ## How to add your new Sprite
+
+1)Create a pixel image.
+2)Put that image inside the spriteSheet image - literally join the picture with the other.
+3)Create a Sprite as a field!
+3)If it is something that is for the level to render, add it to init method!
+  Else just use it as a Sprite anywhere you like!!!
