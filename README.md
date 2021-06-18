@@ -26,7 +26,7 @@ Now your object is part of the game!!!
 ## How to have interactions with the objects
 Bare in mind that the whole physics/interactions between objects is beeing done with a simple line!-><br />
 ```
- Renderables object = list.getRenderable(this.coordinates);
+ Renderables object = data.getRenderables().getRenderable(this.coordinates);
 if(object instanceof YOURCLASS_newObject) {
    //do stuff!!!
 }
