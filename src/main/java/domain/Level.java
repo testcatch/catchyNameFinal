@@ -39,8 +39,8 @@ public final class Level implements Serializable{
 		//>>4 == /16 . I am dividing into tiles instead of pixels
 		// Because I am dealing with rendering tiles its not the same as rendering a player cause a player can be in between 2 tiles but a tile is after the other.Bitwise is a lot faster 
 		screen.setOffset(xScroll, yScroll);
-		int x0 = xScroll >> 4; 
-		int x1 = (xScroll + screen.getWidth() + 16) >> 4; 		
+		int x0 = xScroll >>4; 
+		int x1 = (xScroll + screen.getWidth() + 16) >>4; 		
 		int y0 = yScroll >>4;
 		int y1 = (yScroll + screen.getHeight() +16) >>4;		
 		
@@ -58,8 +58,8 @@ public final class Level implements Serializable{
 			// and +1 in height
 			//checking 4 neighboring tiles if any of them or more are solid.If so doesn't allow moving toward them
 			//	%2 and /2 because 4 corners in a tile, *10 how big is the hitbox, +-B(BUFFER)
-			int xt = ((coordinates.getX() + xa) + c % 2 *10 - 16 +2)/16;	//  how wide is the horizontal hitbox
-			int yt = ((coordinates.getY() + ya) + c / 2 * 14  -16 +1)/16;	//	how big vertically is the hitbox
+			int xt = ((coordinates.getX() + xa) + c % 2 *17 - 16 +7)/16;	//  how wide is the horizontal hitbox
+			int yt = ((coordinates.getY() + ya) + c / 2 *19  -16 +6)/16;	//	how big vertically is the hitbox
 			if(getTile(xt,yt).solid()) {
 				return true;
 			}

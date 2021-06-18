@@ -9,18 +9,17 @@ import javax.imageio.ImageIO;
 public class SpriteSheet implements Serializable{
 
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private String path;
 	private int size;
 	private int[] pixels;
 
-	public static final SpriteSheet tiles = new SpriteSheet("SpriteSheet.png/",256);
-	public static final SpriteSheet spawnLevelTiles = new SpriteSheet("SpawnLevelSprites.png/",48);
-	public static final SpriteSheet test = new SpriteSheet("assasin1frontstep1.png/",32);
+	
+	
 	public static final SpriteSheet helloWorld = new SpriteSheet("SpriteSheet1.png/",256);
-	//only the helloWorld will exist from now on and the player Sprites all the other will be deleted 
+	
 	
 	public SpriteSheet(String path, int size) {
 		
@@ -40,7 +39,6 @@ public class SpriteSheet implements Serializable{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	public int getSIZE() {

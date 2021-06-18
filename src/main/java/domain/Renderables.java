@@ -23,7 +23,7 @@ public abstract class Renderables implements Serializable, Comparable<Renderable
 	}
 
 	public void render() {
-		screen.renderPlayer(coordinates.getX()-16, coordinates.getY()-16, sprite);
+		screen.render(coordinates.getX()-16, coordinates.getY()-16, sprite);
 	}
 	
 	public Coordinates getCoordinates() {

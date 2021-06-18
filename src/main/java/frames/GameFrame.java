@@ -21,9 +21,9 @@ public class GameFrame extends JPanel implements Runnable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int screenWidth = 300;
+	private int screenWidth = 500;
 	private int screenHeight = screenWidth / 16*9;
-	private int scale = 3;
+	private int scale = 2;
 	private transient BufferedImage image = new BufferedImage(screenWidth,screenHeight,BufferedImage.TYPE_INT_RGB); //creating an image with an accesible buffer
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 	
