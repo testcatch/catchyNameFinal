@@ -11,8 +11,6 @@ public class Tile {
 	private static HashMap<Integer,Tile> tileHash = new HashMap<>();
 	private boolean solid;
 	
-
-	
 	public Tile(Sprite sprite,boolean solid) {
 		this.sprite = sprite;
 		this.solid = solid;

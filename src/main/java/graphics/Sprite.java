@@ -47,7 +47,7 @@ public class Sprite implements Serializable {
  	public static final Sprite grass_flower_shoppable = new Sprite(16,0,1,SpriteSheet.helloWorld,0xff00ff21,false);
  	public static final Sprite grass_rocky_shoppable = new Sprite(16,0,2,SpriteSheet.helloWorld,0xff4cff00,false);
  	public static final Sprite water = new Sprite(16,4,0,SpriteSheet.helloWorld,0xff0026ff,true);
- 	public static final Sprite void_pink = new Sprite(16,5,0,SpriteSheet.helloWorld,0xff696969,false);
+ 	public static final Sprite void_pink = new Sprite(16,5,0,SpriteSheet.helloWorld,0xff696969,true);
  	//------------------------------SHOP----------------------------
  	public static final Sprite shop00 = new Sprite(16,1,0,SpriteSheet.helloWorld,0xff7F006E,true);
  	public static final Sprite shop01 = new Sprite(16,2,0,SpriteSheet.helloWorld,0xff7F016E,true);
