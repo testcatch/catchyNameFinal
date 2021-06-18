@@ -49,8 +49,8 @@ Create your method there.Simple as that!!!<br />
         
 ## How to add your new Sprite
 
-1)Create a pixel image.
+1)Create a pixel image.<br />
 2)Put that image inside the spriteSheet image - literally join the picture with the other.<br />
 3)Create a Sprite as a field!<br />
-3)If it is something that is for the level to render, add it to init method!<br />
+4)If it is something that is for the level to render, add it to init method!<br />
   Else just use it as a Sprite anywhere you like!!!<br />
