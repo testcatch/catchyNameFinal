@@ -201,10 +201,10 @@ public class Sprite implements Serializable {
 		Tile.hashInsert(0xffe49fc4, armory10, true);
 		Tile.hashInsert(0xffe49fc5, armory11, true);
 		
-		Tile.hashInsert(0xff6a7e23, bridge00, true);
-		Tile.hashInsert(0xff6a7e24, bridge01, true);
-		Tile.hashInsert(0xff6a7e25, bridge02, true);
-		Tile.hashInsert(0xff6a7e26, bridge03, true);
+		Tile.hashInsert(0xff6a7e23, bridge00, false);
+		Tile.hashInsert(0xff6a7e24, bridge01, false);
+		Tile.hashInsert(0xff6a7e25, bridge02, false);
+		Tile.hashInsert(0xff6a7e26, bridge03, false);
 		Tile.hashInsert(0xff6a7e27, bridge10, false);
 		Tile.hashInsert(0xff6a7e28, bridge11, false);
 		Tile.hashInsert(0xff6a7e29, bridge12, false);

@@ -14,7 +14,7 @@ public class Archer extends Champion{
 	private static final long serialVersionUID = 1L;
 
 	public Archer(Coordinates playerSpawn,Sprite sprite) {
-		super(playerSpawn,sprite,Sprite.testingSprite);
+		super(playerSpawn,sprite,Sprite.ultimateRedX);
 	}
 		
 	@Override
